@@ -332,8 +332,8 @@ export const projects: Project[] = [
     id: 13,
     slug: 'snipbyte',
     title: 'Snipbyte',
-    description: 'A private limited company based in the UK.',
-    longDescription: 'A private limited company registered in the UK. No further information about its purpose or services was publicly available.',
+    description: 'A platform for free and premium coding templates.',
+    longDescription: 'SnipByte is a dynamic platform offering a rich collection of free and premium coding templates tailored for web developers of all levels—from beginners to seasoned pros. Whether you\'re building with React, Next.js, WordPress, PHP, HTML, Tailwind, or JavaScript, SnipByte provides ready-to-use resources to accelerate your workflow and elevate your projects',
     category: 'Web App',
     imageUrl: '/images/portfolio/snipbyte.png',
     technologies: ['React', 'Next.js', 'Vercel', 'TypeScript'],
@@ -458,4 +458,5 @@ export const featuredProjects = projects.filter((project) => project.featured);
 
 export const projectCategories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
+    
     
