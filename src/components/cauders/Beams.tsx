@@ -165,8 +165,7 @@ interface BeamsProps {
     rotation?: number;
 }
 
-
-const Beams: FC<BeamsProps> = ({
+const Scene = ({
   beamWidth = 2,
   beamHeight = 15,
   beamNumber = 12,
@@ -234,15 +233,35 @@ const Beams: FC<BeamsProps> = ({
     [speed, noiseIntensity, scale]
   );
 
+  const geometry = useMemo(
+    () => createStackedPlanesBufferGeometry(beamNumber, beamWidth, beamHeight, 0, 100),
+    [beamNumber, beamWidth, beamHeight]
+  );
+  
+  useFrame((_, delta) => {
+    if (meshRef.current && (meshRef.current.material as THREE.ShaderMaterial).uniforms.time) {
+        (meshRef.current.material as THREE.ShaderMaterial).uniforms.time.value += 0.1 * delta;
+    }
+  });
+
   return (
-    <CanvasWrapper>
+    <>
       <group rotation={[0, 0, degToRad(rotation)]}>
-        <PlaneNoise ref={meshRef} material={beamMaterial} count={beamNumber} width={beamWidth} height={beamHeight} />
+        <mesh ref={meshRef} geometry={geometry} material={beamMaterial} />
         <DirLight color={lightColor} position={[0, 3, 10]} />
       </group>
       <ambientLight intensity={1} />
       <color attach="background" args={['#000000']} />
       <PerspectiveCamera makeDefault position={[0, 0, 20]} fov={30} />
+    </>
+  );
+}
+
+
+const Beams: FC<BeamsProps> = (props) => {
+  return (
+    <CanvasWrapper>
+      <Scene {...props} />
     </CanvasWrapper>
   );
 };
@@ -294,42 +313,6 @@ function createStackedPlanesBufferGeometry(n: number, width: number, height: num
   geometry.computeVertexNormals();
   return geometry;
 }
-
-
-interface MergedPlanesProps {
-    material: THREE.ShaderMaterial;
-    width: number;
-    count: number;
-    height: number;
-}
-  
-const MergedPlanes = forwardRef<THREE.Mesh, MergedPlanesProps>(({ material, width, count, height }, ref) => {
-  const mesh = useRef<THREE.Mesh>(null!);
-  useImperativeHandle(ref, () => mesh.current);
-  const geometry = useMemo(
-    () => createStackedPlanesBufferGeometry(count, width, height, 0, 100),
-    [count, width, height]
-  );
-  useFrame((_, delta) => {
-    if (mesh.current && (mesh.current.material as THREE.ShaderMaterial).uniforms.time) {
-        (mesh.current.material as THREE.ShaderMaterial).uniforms.time.value += 0.1 * delta;
-    }
-  });
-  return <mesh ref={mesh} geometry={geometry} material={material} />;
-});
-MergedPlanes.displayName = 'MergedPlanes';
-
-interface PlaneNoiseProps {
-    material: THREE.ShaderMaterial;
-    width: number;
-    count: number;
-    height: number;
-}
-
-const PlaneNoise = forwardRef<THREE.Mesh, PlaneNoiseProps>((props, ref) => (
-  <MergedPlanes ref={ref} material={props.material} width={props.width} count={props.count} height={props.height} />
-));
-PlaneNoise.displayName = 'PlaneNoise';
 
 interface DirLightProps {
     position: [number, number, number];
