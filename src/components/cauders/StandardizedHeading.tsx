@@ -31,3 +31,4 @@ export default function StandardizedHeading({ text }: StandardizedHeadingProps) 
     </h2>
   );
 }
+
