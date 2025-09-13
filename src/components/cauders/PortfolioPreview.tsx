@@ -146,7 +146,7 @@ export default function PortfolioPreview() {
   return (
     <div
       ref={sectionRef}
-      className="relative flex flex-col justify-center h-full w-full pointer-events-auto"
+      className="relative flex flex-col justify-center h-full w-full"
       onMouseMove={handleMouseMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
