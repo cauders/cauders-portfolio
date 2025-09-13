@@ -9,7 +9,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {z} from 'zod';
 
 const DynamicContentSuggestionsInputSchema = z.object({
   projectTitle: z.string().describe('The title of the portfolio project.'),

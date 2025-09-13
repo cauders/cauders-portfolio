@@ -9,7 +9,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {z} from 'zod';
 
 const ChatInputSchema = z.object({
   message: z.string().describe('The user\'s message to the chatbot.'),
