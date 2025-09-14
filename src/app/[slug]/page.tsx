@@ -109,7 +109,7 @@ export default function ProjectPage() {
             {url && url !== '#' && (
                  <Button asChild variant="link" className="text-foreground justify-start p-0 h-auto text-2xl">
                     <Link href={url} target="_blank">
-                        Visit Website <ExternalLink className="ml-2 h-4 w-4"/>
+                        {category === 'Mobile App' ? 'Download App' : 'Visit Website'} <ExternalLink className="ml-2 h-4 w-4"/>
                     </Link>
                 </Button>
             )}
