@@ -17,6 +17,7 @@ const quickLinks = [
 
 const companyLinks = [
     { href: 'https://cauders.com/about', label: 'About Us' },
+    { href: 'https://cauders.com/team', label: 'Our Team' },
     { href: 'https://cauders.com/contact', label: 'Contact' },
     { href: 'https://cauders.com/careers', label: 'Careers' },
     { href: 'https://cauders.com/faq', label: 'FAQ' },
