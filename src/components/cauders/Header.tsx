@@ -13,7 +13,7 @@ import { getProjects } from '@/lib/data';
 const navLinks = [
   { href: 'https://cauders.com', label: 'Home' },
   { href: 'https://cauders.com/services', label: 'Services' },
-  { href: '/', label: 'Portfolio' },
+  { href: '/projects', label: 'Projects' },
   { href: 'https://cauders.com/contact', label: 'Contact' }
 ];
 

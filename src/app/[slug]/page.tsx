@@ -91,8 +91,8 @@ export default function ProjectPage() {
           <div>
             <div className="mb-8">
               <Button asChild variant="outline" className={buttonClasses}>
-                  <Link href="/portfolio">
-                      <ArrowLeft className="mr-2 h-4 w-4" /> Back to Portfolio
+                  <Link href="/projects">
+                      <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
                   </Link>
               </Button>
             </div>

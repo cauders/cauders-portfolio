@@ -12,7 +12,7 @@ import { getProjects } from '@/lib/data';
 const quickLinks = [
     { href: 'https://cauders.com', label: 'Home' },
     { href: 'https://cauders.com/services', label: 'Services' },
-    { href: '/', label: 'Portfolio' },
+    { href: '/projects', label: 'Projects' },
 ];
 
 const companyLinks = [
