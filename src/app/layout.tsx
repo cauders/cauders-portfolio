@@ -40,9 +40,6 @@ export default function RootLayout({
       <body className={cn(montserrat.variable, lato.variable, 'antialiased font-body flex flex-col min-h-screen bg-background')}>
         <SplashScreen />
         <ConditionalLayout>
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
             <ClientOnlyBeams />
         </ConditionalLayout>
         
