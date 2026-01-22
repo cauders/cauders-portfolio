@@ -34,7 +34,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="dark" style={{colorScheme: 'dark'}}>
-      <body className={cn(montserrat.variable, lato.variable, 'antialiased font-body flex flex-col min-h-screen bg-background')}>
+      <body className={cn(montserrat.variable, lato.variable, 'antialiased font-body flex flex-col min-h-screen')}>
         
         <Header />
         <main className="flex-grow pt-16 bg-transparent">
